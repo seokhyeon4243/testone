@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-Mapper.dtd">
+  <mapper namespace="test.spring.mapper.SampleMapper">
+  
+  	<select id="sampleList" resultType="test.spring.component.SampleDTO">
+  		select * from sample
+  	</select>
+  	
+  	<select id="idList" resultType="String">
+  		select id from sample
+  	</select>
+  	
+  	<select id="pwFind" resultType="String" parameterType="String">
+  		select pw from sample where id=#{id}
+  	</select>
+  	
+  	<select id="loginCheck" resultType="int">
+  		select count(*) from sample where id=#{id} and pw=#{pw}
+  	</select>
+  	
+  	<insert id="insert">
+  		insert into sample values(#{id},#{pw},#{age},#{birth})
+  	</insert>
+  	
+  </mapper>

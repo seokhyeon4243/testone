@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">	
+	
+	<!-- 객체생성 Date day = new Date() -->
+	<beans:bean id="day" class="java.util.Date">
+		<beans:property name="year" value="123" />
+	</beans:bean>
+	
+	<beans:bean id="dto" class="test.spring.component.ParameterDTO" />
+	
+	<beans:bean id="dto2" class="test.spring.component.ParameterDTO">
+		<beans:constructor-arg value="test" />
+		<beans:constructor-arg value="1234" />
+		<beans:constructor-arg value="30" />
+	</beans:bean>
+	
+	<beans:bean id="dto3" class="test.spring.component.ParameterDTO">
+		<beans:constructor-arg value="test" />
+		<beans:constructor-arg ref="day" />
+	</beans:bean>
+	
+	<beans:bean id="dto4" class="test.spring.component.ParameterDTO">
+		<beans:property name="id" value="java" />
+		<beans:property name="pw" value="1111" />
+		<beans:property name="day" ref="day" />
+	</beans:bean>
+</beans:beans>
